@@ -430,12 +430,10 @@ public class RssFeedServletTest
                       mockHttpServletResponse.getStatus() );
     }
 
-    @Ignore
-    public void XXX_testInvalidRequest()
+    @Test
+    public void testInvalidRequest()
         throws Exception
     {
-        //RssFeedServlet servlet =
-        //    (RssFeedServlet) client.newInvocation( "http://localhost/feeds?invalid_param=xxx" ).getServlet();
         MockHttpServletRequest request = new MockHttpServletRequest();
         request.setRequestURI( "/feeds?invalid_param=xxx" );
         request.addHeader( "User-Agent", "Apache Archiva unit test" );
@@ -449,14 +447,10 @@ public class RssFeedServletTest
 
     }
 
-    @Ignore
-    public void XXX_testInvalidAuthenticationRequest()
+    @Test
+    public void testInvalidAuthenticationRequest()
         throws Exception
     {
-        //RssFeedServlet servlet =
-        //    (RssFeedServlet) client.newInvocation( "http://localhost/feeds/unauthorized-repo" ).getServlet();
-
-        //WebRequest request = new GetMethodWebRequest( "http://localhost/feeds/unauthorized-repo" );
 
         MockHttpServletRequest request = new MockHttpServletRequest();
         request.setRequestURI( "/feeds/unauthorized-repo" );
@@ -475,8 +469,8 @@ public class RssFeedServletTest
 
     }
 
-    @Ignore
-    public void XXX_testUnauthorizedRequest()
+    @Test
+    public void testUnauthorizedRequest()
         throws Exception
     {
 
@@ -484,8 +478,6 @@ public class RssFeedServletTest
         request.setRequestURI( "/feeds/unauthorized-repo" );
         request.addHeader( "User-Agent", "Apache Archiva unit test" );
         request.setMethod( "GET" );
-
-        //WebRequest request = new GetMethodWebRequest( "http://localhost/feeds/unauthorized-repo" );
 
         Base64 encoder = new Base64( 0, new byte[0] );
         String userPass = "user1:password1";
